@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3DF7565BA62C213AC674803 /* Pods_UITextField_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CCD437DD83E2EC7266B88E /* Pods_UITextField_Demo.framework */; };
 		E76DA28E27C5022D00DDCAB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76DA28D27C5022D00DDCAB5 /* AppDelegate.swift */; };
 		E76DA29027C5022D00DDCAB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76DA28F27C5022D00DDCAB5 /* SceneDelegate.swift */; };
 		E76DA29227C5022D00DDCAB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76DA29127C5022D00DDCAB5 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1EE3C93EF2E938F8723FAB66 /* Pods-UITextField-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITextField-Demo.release.xcconfig"; path = "Target Support Files/Pods-UITextField-Demo/Pods-UITextField-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		26C58F08721747EDEFD9863E /* Pods-UITextField-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITextField-Demo.debug.xcconfig"; path = "Target Support Files/Pods-UITextField-Demo/Pods-UITextField-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		81CCD437DD83E2EC7266B88E /* Pods_UITextField_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UITextField_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76DA28A27C5022D00DDCAB5 /* UITextField-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITextField-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76DA28D27C5022D00DDCAB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E76DA28F27C5022D00DDCAB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DF7565BA62C213AC674803 /* Pods_UITextField_Demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53DC864946CF3B2928E9BC6D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26C58F08721747EDEFD9863E /* Pods-UITextField-Demo.debug.xcconfig */,
+				1EE3C93EF2E938F8723FAB66 /* Pods-UITextField-Demo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D7568AEEDC3E39D0640400D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				81CCD437DD83E2EC7266B88E /* Pods_UITextField_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E76DA28127C5022D00DDCAB5 = {
 			isa = PBXGroup;
 			children = (
 				E76DA28C27C5022D00DDCAB5 /* UITextField-Demo */,
 				E76DA28B27C5022D00DDCAB5 /* Products */,
+				53DC864946CF3B2928E9BC6D /* Pods */,
+				D7568AEEDC3E39D0640400D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E76DA29E27C5022D00DDCAB5 /* Build configuration list for PBXNativeTarget "UITextField-Demo" */;
 			buildPhases = (
+				605BBF5DBA5657EF4138657F /* [CP] Check Pods Manifest.lock */,
 				E76DA28627C5022D00DDCAB5 /* Sources */,
 				E76DA28727C5022D00DDCAB5 /* Frameworks */,
 				E76DA28827C5022D00DDCAB5 /* Resources */,
+				8125BECB0AE8357CD4CC7180 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		605BBF5DBA5657EF4138657F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITextField-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8125BECB0AE8357CD4CC7180 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UITextField-Demo/Pods-UITextField-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UITextField-Demo/Pods-UITextField-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UITextField-Demo/Pods-UITextField-Demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E76DA28627C5022D00DDCAB5 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		E76DA29F27C5022D00DDCAB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26C58F08721747EDEFD9863E /* Pods-UITextField-Demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +381,7 @@
 		};
 		E76DA2A027C5022D00DDCAB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EE3C93EF2E938F8723FAB66 /* Pods-UITextField-Demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
