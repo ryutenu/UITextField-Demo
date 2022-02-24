@@ -26,6 +26,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        scrollView.contentInsetAdjustmentBehavior = .never
+        
         textField.text = UserDefaults.standard.string(forKey: "text")
         
         setupTextField()
@@ -96,7 +98,7 @@ class ViewController: UIViewController {
         let displayBottom = bottomLine - scrollView.contentOffset.y
         
         if keyboardTopLine < displayBottom {
-            let height = displayBottom - keyboardTopLine + 50
+            let height = displayBottom - keyboardTopLine + 10
             addedHeight = height
             
             let offset = CGPoint(x: 0, y: scrollView.contentOffset.y + height)
