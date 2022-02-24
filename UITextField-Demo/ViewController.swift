@@ -44,7 +44,7 @@ class ViewController: UIViewController {
         
         // 入力するたびにこの処理が走る
         textField.rx.text.orEmpty.asDriver().drive(onNext: { [unowned self] text in
-            if text.lengthOfBytes() > 8, text.count > 0 {
+            if 8 < text.lengthOfBytes(), 0 < text.count {
                 textField.text = String(text.prefix(text.count-1))
             }
             label.text = text.isEmpty ? "label" : textField.text
@@ -91,12 +91,12 @@ class ViewController: UIViewController {
         let keyboardHeight = keyboardFrame.height
         let keyboardTopLine = view.frame.height - keyboardHeight
         
-        let convertedFrame = textField.convert(textField.frame.origin, to: scrollView)
+        let convertedFrame = textField.convert(textField.bounds.origin, to: scrollView)
         let bottomLine = convertedFrame.y + textField.frame.height
         let displayBottom = bottomLine - scrollView.contentOffset.y
         
-        if displayBottom > keyboardTopLine {
-            let height = displayBottom - keyboardTopLine + 20
+        if keyboardTopLine < displayBottom {
+            let height = displayBottom - keyboardTopLine + 50
             addedHeight = height
             
             let offset = CGPoint(x: 0, y: scrollView.contentOffset.y + height)
@@ -109,5 +109,23 @@ class ViewController: UIViewController {
     @objc func hideKeyboard(_ notification: Notification) {
         print("hideKeyboard")
         
+        let height = addedHeight
+        addedHeight = 0
+        
+        var offset = CGPoint(x: 0, y: 0)
+        
+        if scrollView.contentOffset.y - height < 0 {
+            // 上端
+            offset = CGPoint(x: scrollView.contentOffset.x, y: 0)
+        } else if (scrollView.contentSize.height - scrollView.frame.size.height - scrollViewBottomConstraint.constant) < scrollView.contentOffset.y {
+            // 下端
+            offset = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y)
+        }else {
+            // その他
+            offset = CGPoint(x: scrollView.contentOffset.x, y: scrollView.contentOffset.y - height)
+        }
+        
+        scrollViewBottomConstraint.constant = 0
+        scrollView.setContentOffset(offset, animated: true)
     }
 }
