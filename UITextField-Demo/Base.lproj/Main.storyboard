@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yup-FS-SID">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6wS-Sl-dcQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="最大半角8文字まで" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFm-1l-Ab3">
                                                         <rect key="frame" x="37.666666666666657" y="120" width="300" height="30"/>
@@ -35,7 +35,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFE-8V-UB7">
-                                                        <rect key="frame" x="37.666666666666657" y="235" width="300" height="30"/>
+                                                        <rect key="frame" x="37.666666666666657" y="870" width="300" height="30"/>
                                                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="300" id="6qq-fh-0ix"/>
@@ -48,15 +48,15 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="uFE-8V-UB7" firstAttribute="centerY" secondItem="6wS-Sl-dcQ" secondAttribute="centerY" id="0Ca-sT-xeu"/>
                                                     <constraint firstItem="xFm-1l-Ab3" firstAttribute="top" secondItem="6wS-Sl-dcQ" secondAttribute="top" constant="120" id="5xE-lf-F9O"/>
                                                     <constraint firstItem="uFE-8V-UB7" firstAttribute="centerX" secondItem="6wS-Sl-dcQ" secondAttribute="centerX" id="ATx-6c-osz"/>
-                                                    <constraint firstAttribute="height" constant="500" id="PgD-4J-qMX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="uFE-8V-UB7" secondAttribute="bottom" constant="100" id="BHM-hv-pmB"/>
+                                                    <constraint firstAttribute="height" constant="1000" id="PgD-4J-qMX"/>
                                                     <constraint firstItem="xFm-1l-Ab3" firstAttribute="centerX" secondItem="6wS-Sl-dcQ" secondAttribute="centerX" id="fmP-iK-UnS"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="toK-G1-hy2">
-                                                <rect key="frame" x="0.0" y="500" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="1000" width="375" height="100"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="最大半角8文字まで" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0fj-4x-KA8">
                                                         <rect key="frame" x="37.666666666666657" y="35" width="300" height="30"/>
@@ -72,19 +72,29 @@
                                                 <constraints>
                                                     <constraint firstItem="0fj-4x-KA8" firstAttribute="centerY" secondItem="toK-G1-hy2" secondAttribute="centerY" id="9Iw-nm-WSa"/>
                                                     <constraint firstItem="0fj-4x-KA8" firstAttribute="centerX" secondItem="toK-G1-hy2" secondAttribute="centerX" id="Bbd-Dj-j2W"/>
+                                                    <constraint firstAttribute="height" constant="100" id="wGp-2A-fdQ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSc-Nv-oKu">
+                                                <rect key="frame" x="0.0" y="1100" width="375" height="0.0"/>
+                                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="oDK-l3-T2F"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="mSc-Nv-oKu" firstAttribute="leading" secondItem="yup-FS-SID" secondAttribute="leading" id="2ys-yd-nFc"/>
+                                            <constraint firstAttribute="trailing" secondItem="mSc-Nv-oKu" secondAttribute="trailing" id="DSm-cw-pKK"/>
+                                            <constraint firstAttribute="bottom" secondItem="mSc-Nv-oKu" secondAttribute="bottom" id="LEU-Ph-MfR"/>
                                             <constraint firstAttribute="trailing" secondItem="6wS-Sl-dcQ" secondAttribute="trailing" id="Lmc-7v-aEv"/>
                                             <constraint firstItem="6wS-Sl-dcQ" firstAttribute="top" secondItem="yup-FS-SID" secondAttribute="top" id="O7w-l9-tNK"/>
-                                            <constraint firstAttribute="height" constant="600" id="Uqz-px-Uq9"/>
                                             <constraint firstItem="6wS-Sl-dcQ" firstAttribute="leading" secondItem="yup-FS-SID" secondAttribute="leading" id="Y41-BR-aje"/>
                                             <constraint firstItem="toK-G1-hy2" firstAttribute="top" secondItem="6wS-Sl-dcQ" secondAttribute="bottom" id="kQo-1U-3DR"/>
                                             <constraint firstItem="toK-G1-hy2" firstAttribute="leading" secondItem="yup-FS-SID" secondAttribute="leading" id="leq-Gr-8Dh"/>
                                             <constraint firstAttribute="trailing" secondItem="toK-G1-hy2" secondAttribute="trailing" id="o4m-Ua-Aqv"/>
-                                            <constraint firstAttribute="bottom" secondItem="toK-G1-hy2" secondAttribute="bottom" id="xaa-0h-YcJ"/>
+                                            <constraint firstItem="mSc-Nv-oKu" firstAttribute="top" secondItem="toK-G1-hy2" secondAttribute="bottom" id="zpB-Hz-8UB"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -110,7 +120,9 @@
                     </view>
                     <connections>
                         <outlet property="label" destination="uFE-8V-UB7" id="oxj-vY-Z7c"/>
-                        <outlet property="textField" destination="xFm-1l-Ab3" id="etw-oG-ZAK"/>
+                        <outlet property="scrollView" destination="xRI-Jf-89Y" id="0iT-VU-7iG"/>
+                        <outlet property="scrollViewBottomConstraint" destination="oDK-l3-T2F" id="6kb-oB-rRS"/>
+                        <outlet property="textField" destination="0fj-4x-KA8" id="kO9-al-bsM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

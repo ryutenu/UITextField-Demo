@@ -11,11 +11,17 @@ import RxCocoa
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var label: UILabel!
     
     @IBOutlet weak var textField: UITextField!
     
-    var disposeBag = DisposeBag()
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    
+    private var disposeBag = DisposeBag()
+    
+    private var addedHeight = CGFloat(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,8 @@ class ViewController: UIViewController {
         textField.text = UserDefaults.standard.string(forKey: "text")
         
         setupTextField()
+        
+        addKeyboardObserver()
     }
     
     private func setupTextField() {
@@ -67,5 +75,39 @@ class ViewController: UIViewController {
         textField.rx.controlEvent(.valueChanged).asDriver().drive(onNext: { _ in
             print("valueChanged")
         }).disposed(by: disposeBag)
+    }
+    
+    private func addKeyboardObserver() {
+        let notification = NotificationCenter.default
+        notification.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        notification.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func showKeyboard(_ notification: Notification) {
+        print("showKeyboard")
+        
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        let keyboardHeight = keyboardFrame.height
+        let keyboardTopLine = view.frame.height - keyboardHeight
+        
+        let convertedFrame = textField.convert(textField.frame.origin, to: scrollView)
+        let bottomLine = convertedFrame.y + textField.frame.height
+        let displayBottom = bottomLine - scrollView.contentOffset.y
+        
+        if displayBottom > keyboardTopLine {
+            let height = displayBottom - keyboardTopLine + 20
+            addedHeight = height
+            
+            let offset = CGPoint(x: 0, y: scrollView.contentOffset.y + height)
+            scrollView.setContentOffset(offset, animated: true)
+            
+            scrollViewBottomConstraint.constant = keyboardHeight
+        }
+    }
+    
+    @objc func hideKeyboard(_ notification: Notification) {
+        print("hideKeyboard")
+        
     }
 }
