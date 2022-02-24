@@ -14,6 +14,7 @@
 		E76DA29527C5022D00DDCAB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76DA29327C5022D00DDCAB5 /* Main.storyboard */; };
 		E76DA29727C5022D00DDCAB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E76DA29627C5022D00DDCAB5 /* Assets.xcassets */; };
 		E76DA29A27C5022D00DDCAB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E76DA29827C5022D00DDCAB5 /* LaunchScreen.storyboard */; };
+		E76DA2A227C76F2600DDCAB5 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76DA2A127C76F2600DDCAB5 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		E76DA29627C5022D00DDCAB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E76DA29927C5022D00DDCAB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E76DA29B27C5022D00DDCAB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E76DA2A127C76F2600DDCAB5 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +50,6 @@
 				26C58F08721747EDEFD9863E /* Pods-UITextField-Demo.debug.xcconfig */,
 				1EE3C93EF2E938F8723FAB66 /* Pods-UITextField-Demo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +85,7 @@
 				E76DA28D27C5022D00DDCAB5 /* AppDelegate.swift */,
 				E76DA28F27C5022D00DDCAB5 /* SceneDelegate.swift */,
 				E76DA29127C5022D00DDCAB5 /* ViewController.swift */,
+				E76DA2A127C76F2600DDCAB5 /* StringExtension.swift */,
 				E76DA29327C5022D00DDCAB5 /* Main.storyboard */,
 				E76DA29627C5022D00DDCAB5 /* Assets.xcassets */,
 				E76DA29827C5022D00DDCAB5 /* LaunchScreen.storyboard */,
@@ -207,6 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E76DA2A227C76F2600DDCAB5 /* StringExtension.swift in Sources */,
 				E76DA29227C5022D00DDCAB5 /* ViewController.swift in Sources */,
 				E76DA28E27C5022D00DDCAB5 /* AppDelegate.swift in Sources */,
 				E76DA29027C5022D00DDCAB5 /* SceneDelegate.swift in Sources */,

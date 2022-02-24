@@ -36,7 +36,10 @@ class ViewController: UIViewController {
         
         // 入力するたびにこの処理が走る
         textField.rx.text.orEmpty.asDriver().drive(onNext: { [unowned self] text in
-            label.text = text.isEmpty ? "label" : text
+            if text.lengthOfBytes() > 8, text.count > 0 {
+                textField.text = String(text.prefix(text.count-1))
+            }
+            label.text = text.isEmpty ? "label" : textField.text
         }).disposed(by: disposeBag)
         
         // キーボードが表示された時に処理が走る
@@ -46,7 +49,7 @@ class ViewController: UIViewController {
         
         // textFieldの値が変更されるたびに処理が走る
         textField.rx.controlEvent(.editingChanged).asDriver().drive(onNext: { _ in
-//            print("editingChanged")
+            
         }).disposed(by: disposeBag)
         
         // キーボードのReturn Keyがタップされる時に処理が走る
