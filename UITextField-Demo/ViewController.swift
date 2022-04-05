@@ -45,11 +45,11 @@ class ViewController: UIViewController {
         }).disposed(by: disposeBag)
         
         // 入力するたびにこの処理が走る
-        textField.rx.text.orEmpty.asDriver().drive(onNext: { [unowned self] text in
+        textField.rx.text.orEmpty.asDriver().drive(onNext: { [weak self] text in
             if 8 < text.lengthOfBytes(), 0 < text.count {
-                textField.text = String(text.prefix(text.count-1))
+                self?.textField.text = String(text.prefix(text.count-1))
             }
-            label.text = text.isEmpty ? "label" : textField.text
+            self?.label.text = text.isEmpty ? "label" : self?.textField.text
         }).disposed(by: disposeBag)
         
         // キーボードが表示された時に処理が走る
